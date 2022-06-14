@@ -29,25 +29,28 @@ var rightArrow = document.createElement('div');
 rightArrow.setAttribute('class', 'arrow-right');
 carouselContainer.appendChild(rightArrow);
 
-rightArrow.addEventListener('click', () => {
-    imageIndex = imageIndex % numberOfImages;
-    rightSlide();
-    imageIndex++;
-    checkActive(imageIndex);
-});
+
+function arrowBtnListener() {
+    rightArrow.addEventListener('click', () => {
+        imageIndex = imageIndex % numberOfImages;
+        rightSlide();
+        imageIndex++;
+        checkActive(imageIndex);
+    });
 
 
-//Listening to left arrow click
-var leftArrow = document.createElement('div');
-leftArrow.setAttribute('class', 'arrow-left');
-carouselContainer.appendChild(leftArrow);
+    //Listening to left arrow click
+    var leftArrow = document.createElement('div');
+    leftArrow.setAttribute('class', 'arrow-left');
+    carouselContainer.appendChild(leftArrow);
 
-leftArrow.addEventListener('click', () => {
-    imageIndex = imageIndex % numberOfImages;
-    leftSlide();
-    imageIndex--;
-    checkActive(imageIndex);
-});
+    leftArrow.addEventListener('click', () => {
+        imageIndex = imageIndex % numberOfImages;
+        leftSlide();
+        imageIndex--;
+        checkActive(imageIndex);
+    });
+}
 
 function dotsEventListener() {
     for (let i = 0; i < numberOfImages; i++) {
@@ -79,6 +82,7 @@ function animationSlide() {
 
 function main() {
     animationSlide();
+    arrowBtnListener();
     dotsEventListener();
 }
 

@@ -8,20 +8,20 @@ function rightSlide() {
 		for (let i = 0; i < numberOfImages; i++) {
 			const animate = setInterval(() => {
 				images[i].style.left = `${parseInt(getStyle(images[i], 'left')) + 10}px`;
-				if (getStyle(images[i], 'left') >= i * 610) {
+				if (getStyle(images[i], 'left') >= i * CAROUSEL_CONTAINER_WIDTH) {
 					clearInterval(animate);
 				}
-			}, 10);
+			}, TRANSITION_RATE);
 		}
 	}
 	else {
 		for (let i = 0; i < numberOfImages; i++) {
 			const animate = setInterval(() => {
 				images[i].style.left = `${parseInt(getStyle(images[i], 'left')) - 10}px`;
-				if (getStyle(images[i], 'left') <= ((i - imageIndex) * 610)) {
+				if (getStyle(images[i], 'left') <= ((i - imageIndex) * CAROUSEL_CONTAINER_WIDTH)) {
 					clearInterval(animate);
 				}
-			}, 10);
+			}, TRANSITION_RATE);
 		}
 	}
 }
@@ -32,20 +32,20 @@ function leftSlide() {
 		for (let i = 0; i < numberOfImages; i++) {
 			const animate = setInterval(() => {
 				images[i].style.left = `${parseInt(getStyle(images[i], 'left')) - 10}px`;
-				if (getStyle(images[i], 'left') <= -(numberOfImages - i - 1) * 610) {
+				if (getStyle(images[i], 'left') <= -(numberOfImages - i - 1) * CAROUSEL_CONTAINER_WIDTH) {
 					clearInterval(animate);
 				}
-			}, 5);
+			}, TRANSITION_RATE / 2);
 		}
 	}
 	else {
 		for (let i = 0; i < numberOfImages; i++) {
 			const animate = setInterval(() => {
 				images[i].style.left = `${parseInt(getStyle(images[i], 'left')) + 10}px`;
-				if (getStyle(images[i], 'left') >= ((i - imageIndex) * 610)) {
+				if (getStyle(images[i], 'left') >= ((i - imageIndex) * CAROUSEL_CONTAINER_WIDTH)) {
 					clearInterval(animate);
 				}
-			}, 5);
+			}, TRANSITION_RATE / 2);
 		}
 	}
 }
@@ -56,14 +56,14 @@ function slide(index) {
 		if (index < imageIndex) {
 			const animate = setInterval(() => {
 				images[j].style.left = `${parseInt(getStyle(images[j], 'left')) + 10}px`;
-				if (getStyle(images[j], 'left') >= (j - index) * 610) {
+				if (getStyle(images[j], 'left') >= (j - index) * CAROUSEL_CONTAINER_WIDTH) {
 					clearInterval(animate);
 				}
 			}, 10);
 		} else {
 			const animate = setInterval(() => {
 				images[j].style.left = `${parseInt(getStyle(images[j], 'left')) - 10}px`;
-				if (getStyle(images[j], 'left') <= (j - index) * 610) {
+				if (getStyle(images[j], 'left') <= (j - index) * CAROUSEL_CONTAINER_WIDTH) {
 					clearInterval(animate);
 				}
 			}, 10);
